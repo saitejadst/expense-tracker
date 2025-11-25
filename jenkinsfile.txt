@@ -1,32 +1,24 @@
 pipeline {
     agent any
 
-    environment {
-        // Node.js must be installed on the Jenkins agent and in PATH
-        PATH = "${env.PATH}"
-    }
-
     stages {
 
         stage('Checkout') {
             steps {
-                // Clone GitHub repo using SSH
                 git branch: 'main',
-                    url: 'git@github.com:saitejadst/expense-tracker.git',
-                    credentialsId: 'github-ssh'
+                    url: 'https://github.com/saitejadst/expense-tracker.git',
+                    credentialsId: 'github-https'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Install Node.js dependencies
                 bat 'npm install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Placeholder: replace with Jest or your actual tests
                 bat 'echo Running tests...'
                 bat 'npm test || echo "Tests passed (placeholder)"'
             }
@@ -34,11 +26,7 @@ pipeline {
     }
 
     post {
-        success {
-            echo 'Build and test successful'
-        }
-        failure {
-            echo 'Build or test failed'
-        }
+        success { echo 'Build and test successful ✅' }
+        failure { echo 'Build or test failed ❌' }
     }
 }
