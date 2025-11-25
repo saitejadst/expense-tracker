@@ -10,7 +10,6 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                // Use HTTPS and Jenkins credentials (Personal Access Token)
                 git branch: 'main',
                     url: 'https://github.com/saitejadst/expense-tracker.git',
                     credentialsId: 'github-https'
@@ -27,17 +26,17 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat 'echo Running tests...'
-                bat 'npm test || echo "Tests passed (placeholder)"'
+                bat 'npm test'
             }
         }
     }
 
     post {
         success {
-            echo 'Build and test successful'
+            echo 'Build and test successful ✅'
         }
         failure {
-            echo 'Build or test failed'
+            echo 'Build or test failed ❌'
         }
     }
 }
