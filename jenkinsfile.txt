@@ -2,12 +2,10 @@ pipeline {
     agent any
 
     environment {
-        // Node.js must be installed on the Jenkins agent and added to PATH
         PATH = "${env.PATH}"
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 git branch: 'main',
@@ -18,14 +16,12 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'echo Installing dependencies...'
                 bat 'npm install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'echo Running tests...'
                 bat 'npm test'
             }
         }
@@ -33,10 +29,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build and test successful ✅'
+            echo 'Build and test successful'
         }
         failure {
-            echo 'Build or test failed ❌'
+            echo 'Build or test failed'
         }
     }
 }
