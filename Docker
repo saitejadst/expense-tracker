@@ -1,0 +1,21 @@
+
+# Use lightweight Node image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files first (for caching)
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm install --only=production
+
+# Copy application code
+COPY . .
+
+# Expose app port
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "index.js"]
