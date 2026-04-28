@@ -153,27 +153,7 @@ pipeline {
 # 🐳 Docker Setup
 
 docker file
-
-# Use lightweight Node image
-FROM node:18-alpine
-
-# Set working directory
-WORKDIR /app
-
-# Copy package files first (for caching)
-COPY package*.json ./
-
-# Install only production dependencies
-RUN npm install --only=production
-
-# Copy application code
-COPY . .
-
-# Expose app port
-EXPOSE 3000
-
-# Start the application
-CMD ["node", "index.js"]
+access from https://github.com/saitejadst/expense-tracker/blob/main/Docker
 
 ## Build Image
 
