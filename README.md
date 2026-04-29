@@ -229,6 +229,11 @@ expense-tracker/
 
 
 
+
+
+
+
+
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/75f1c9a4-e46a-4e78-8096-f6040d346eca" />
 
 
