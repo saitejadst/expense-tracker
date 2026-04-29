@@ -147,6 +147,7 @@ pipeline {
     }
 }
 ```
+<img width="1616" height="532" alt="image" src="https://github.com/user-attachments/assets/02432902-4a4b-45cc-8243-dead1ac5f143" />
 
 ---
 
@@ -221,6 +222,8 @@ expense-tracker/
 # 🔗 Access
 
 * Local: http://localhost:3000
+
+<img width="1247" height="666" alt="image" src="https://github.com/user-attachments/assets/9867b754-532c-439c-9841-94d5a57253d0" />
 
 
 
